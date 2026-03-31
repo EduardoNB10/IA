@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Magaly ❤️</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <div class="chat-header">
+            <h2>Para mi Magaly ✨</h2>
+            <small>Tu IA personalizada</small>
+        </div>
+        
+        <div id="chat-display" class="chat-display">
+            <div class="bot-msg">¡Hola Magaly! Soy la IA que tu novio programó para ti. Puedes preguntarme sobre: Aniversario, color favorito, primer beso, comida favorita, recuerdo lindo❤️</div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Pregúntame algo sobre nosotros...">
+            <button onclick="send()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        async function send() {
+            const input = document.getElementById('user-input');
+            const display = document.getElementById('chat-display');
+            const text = input.value;
+            if(!text) return;
+
+            // Mostrar mensaje de Magaly
+            display.innerHTML += `<div class="user-msg">${text}</div>`;
+            input.value = "";
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({msg: text})
+            });
+            const data = await response.json();
+            
+            // Mostrar respuesta de la IA
+            display.innerHTML += `<div class="bot-msg">${data.respuesta}</div>`;
+            display.scrollTop = display.scrollHeight;
+        }
+    </script>
+</body>
+</html>

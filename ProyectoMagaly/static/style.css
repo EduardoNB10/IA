@@ -1,0 +1,87 @@
+body {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Morado a Celeste */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 400px;
+    height: 600px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #4b0082;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.chat-display {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #fdfbff;
+}
+
+.bot-msg, .user-msg {
+    margin-bottom: 15px;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.bot-msg {
+    background: #f0e6ff;
+    color: #4b0082;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.user-msg {
+    background: #2575fc;
+    color: white;
+    margin-left: auto;
+    text-align: right;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+}
+
+.input-container {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+input {
+    flex: 1;
+    border: 2px solid #eee;
+    padding: 12px;
+    border-radius: 25px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #6a11cb;
+}
+
+button {
+    background: #6a11cb;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
